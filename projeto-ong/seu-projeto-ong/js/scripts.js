@@ -372,9 +372,7 @@ const FormValidator = {
     }
 };
 
-// ============================================
-// MÓDULO 5: INICIALIZAÇÃO DA APLICAÇÃO
-// ============================================
+
 document.addEventListener('DOMContentLoaded', () => {
     // Inicializa o sistema de SPA
     SPA.init();
@@ -385,3 +383,50 @@ document.addEventListener('DOMContentLoaded', () => {
         SPA.loadPage(hash);
     }
 });
+
+const ThemeSwitcher = {
+    init() {
+        const savedTheme = localStorage.getItem('appTheme');
+        if (savedTheme) {
+            this.applyTheme(savedTheme);
+        } else {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            this.applyTheme(prefersDark ? 'dark' : 'light');
+        }
+        
+        this.setupListeners();
+    },
+
+    setupListeners() {
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('[data-theme]')) {
+                const newTheme = e.target.getAttribute('data-theme');
+                this.toggleTheme(newTheme);
+            }
+        });
+    },
+
+    toggleTheme(themeName) {
+        const currentTheme = document.body.getAttribute('data-theme');
+        let newTheme = themeName;
+        
+        if (currentTheme === themeName) {
+            newTheme = 'light';
+        }
+        
+        this.applyTheme(newTheme);
+    },
+
+    applyTheme(themeName) {
+        document.body.setAttribute('data-theme', themeName);
+        localStorage.setItem('appTheme', themeName);
+        
+        document.body.classList.remove('theme-dark', 'theme-high-contrast');
+        
+        if (themeName === 'dark') {
+            document.body.classList.add('theme-dark');
+        } else if (themeName === 'high-contrast') {
+            document.body.classList.add('theme-high-contrast');
+        }
+    }
+};
