@@ -327,3 +327,68 @@ a:focus, button:focus, input:focus {
     outline-offset: 2px;
 }
 
+a:focus, button:focus, input:focus {
+    /* O outline-offset garante que o contorno não fique colado ao elemento */
+    outline: 3px solid var(--cor-primaria);
+    outline-offset: 3px;
+    transition: outline-color 0.1s ease;
+}
+
+/* 2. Modo Escuro (theme-dark) */
+body.theme-dark {
+    /* Cores de Alto Contraste (Texto #e0e0e0 contra Fundo #121212 = 12.08:1) */
+    background-color: #121212; 
+    color: #e0e0e0;
+}
+
+/* Ajuste de elementos internos para o modo escuro */
+body.theme-dark header, 
+body.theme-dark footer,
+body.theme-dark .projeto-card,
+body.theme-dark .ajuda-card {
+    background-color: #1e1e1e; /* Um cinza escuro para dar profundidade */
+    border-color: #333;
+}
+
+body.theme-dark nav a,
+body.theme-dark h1, 
+body.theme-dark h2, 
+body.theme-dark h3 {
+    color: #ffffff; /* Texto puro branco para títulos e links */
+}
+
+body.theme-dark .form-cadastro input {
+    background-color: #2c2c2c; /* Fundo do input mais escuro */
+    color: #ffffff;
+    border-color: #555;
+}
+
+/* 3. Alto Contraste (theme-high-contrast) */
+body.theme-high-contrast {
+    /* Fundo Preto, Texto Branco (ou amarelo) - Máximo Contraste */
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+/* Força o alto contraste em todos os elementos */
+body.theme-high-contrast * {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+/* Reforça o foco para o Alto Contraste */
+body.theme-high-contrast a:focus, 
+body.theme-high-contrast button:focus, 
+body.theme-high-contrast input:focus {
+    outline: 3px solid #ffff00 !important; /* Amarelo neon de alto contraste */
+    outline-offset: 3px;
+}
+
+/* Exceção para imagens (se houver, para não sumir) */
+body.theme-high-contrast img {
+    opacity: 1 !important;
+    filter: grayscale(100%) contrast(200%); /* Opcional: para melhorar a visualização */
+}
