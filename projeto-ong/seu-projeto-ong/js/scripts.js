@@ -67,20 +67,21 @@ const Templates = {
                 <form id="user-form" novalidate>
                     <div class="form-group">
                         <label for="nome">Nome Completo:</label>
-                        <input type="text" id="nome" name="nome" required>
-                        <span class="error-message" data-error="nome"></span>
+                        <input type="text" id="nome" name="nome" required>                   
+                        <span class="error-message" data-error="nome" aria-live="polite"></span>
+
                     </div>
                     
                     <div class="form-group">
                         <label for="cpf">CPF:</label>
                         <input type="text" id="cpf" name="cpf" maxlength="14" required>
-                        <span class="error-message" data-error="cpf"></span>
+                        <span class="error-message" data-error="nome" aria-live="polite"></span>
                     </div>
                     
                     <div class="form-group">
                         <label for="telefone">Telefone:</label>
                         <input type="text" id="telefone" name="telefone" maxlength="15" required>
-                        <span class="error-message" data-error="telefone"></span>
+                        <span class="error-message" data-error="nome" aria-live="polite"></span>
                     </div>
                     
                     <div class="form-group">
