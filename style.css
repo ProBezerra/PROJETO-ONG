@@ -272,6 +272,29 @@ h1, h2, h3 {
         justify-content: center;
     }
 }
+body {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* Estilos para Modo Escuro */
+body.theme-dark {
+    background-color: #121212; /* Fundo escuro */
+    color: #e0e0e0; /* Texto claro */
+}
+
+/* Estilos para Alto Contraste (WCAG 2.1 AA) */
+body.theme-high-contrast {
+    background-color: #000000; /* Preto puro */
+    color: #ffff00; /* Amarelo ou branco de alto contraste */
+    /* Garanta que todos os elementos interativos tenham bordas fortes */
+    border: 1px solid #ffffff !important;
+}
+
+/* Regra fundamental de contraste: 4.5:1 */
+body.theme-dark .btn-primary {
+    /* Exemplo: Se o fundo do botão for #007bff, o texto deve ter contraste suficiente */
+}
 
 /* Desktop Pequeno (ex: 992px) */
 @media (max-width: 992px) {
