@@ -310,3 +310,20 @@ body.theme-dark .btn-primary {
     }
 }
 
+body.theme-high-contrast {
+    background-color: #000000; /* Fundo preto */
+    color: #ffffff; /* Texto branco (ou amarelo #ffff00) */
+}
+
+/* Remover imagens de fundo ou elementos decorativos que atrapalhem o contraste */
+body.theme-high-contrast .projeto-card {
+    border: 2px solid #ffffff; /* Borda forte para delimitar o card */
+    background-color: #000000;
+}
+
+/* Foco visível e forte para navegação por teclado */
+a:focus, button:focus, input:focus {
+    outline: 3px solid #ffff00 !important;
+    outline-offset: 2px;
+}
+
